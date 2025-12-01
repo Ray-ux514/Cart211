@@ -1,0 +1,368 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  user-select: none;
+}
+.top-nav,
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 100;
+  background: transparent;
+}
+
+.nav-logo {
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.nav-icon.stop {
+  background: #f2a649;
+}
+.nav-icon img {
+  width: 40%;
+  height: 40%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.nav-icon {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 999;
+  transform-origin: center;
+}
+
+/* Show tooltip on hover */
+.nav-icon:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.header {
+  width: 36px;
+  height: 36px;
+  background: #e5e5e5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.user {
+  background: #dcdcdc;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+h1 {
+  justify-content: center;
+  font-size: 140px;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  z-index: 9997;
+}
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.icon {
+  position: absolute;
+  animation: floatUpDown 3.5s ease-in-out infinite;
+}
+
+/* tiktok */
+.icon:nth-child(1) {
+  left: 12%;
+  top: 32%;
+  animation-delay: 0.8s;
+  z-index: 9994;
+  width: 145px;
+}
+/* facebook */
+.icon:nth-child(2) {
+  right: 13%;
+  top: 16%;
+  animation-delay: none;
+  width: 190px;
+  z-index: 9999;
+}
+.feed-quote {
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* STEP LAYOUT */
+.feed-steps {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.step {
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.num {
+  font-weight: 700;
+  margin-right: 4px;
+}
+.profile-info img {
+  height: 340px;
+}
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 240px;
+}
+.profile-info p {
+  max-width: 580px;
+  font-size: 14px;
+  z-index: 9999;
+}
+.media {
+  position: relative;
+}
+.media-img {
+  position: absolute;
+  animation: floatUpDown 3.5s ease-in-out infinite;
+}
+.media-img:nth-child(1) {
+  left: 42%;
+  top: 52%;
+  animation-delay: 0.8s;
+  z-index: 9994;
+  width: 65px;
+}
+.media-img:nth-child(2) {
+  left: 40%;
+  bottom: 12%;
+  animation-delay: 0.4s;
+  z-index: 9994;
+  width: 85px;
+}
+.media-img:nth-child(3) {
+  right: 12%;
+  bottom: 32%;
+  animation-delay: 0.8s;
+  z-index: 9994;
+  width: 75px;
+}
+.cursor-square {
+  position: fixed;
+  width: 26px;
+  height: 26px;
+  background: #b5b5b5;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  transition: opacity 0.2s linear;
+}
+@keyframes blink {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 60px;
+}
+.scroll-btn {
+  align-items: center;
+  justify-content: center;
+  padding: 18px 36px;
+  border-radius: 14px;
+  background-color: #f4a848;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0px auto 0;
+  animation: blink 1s infinite ease-in-out;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+.scroll-btn:hover {
+  background-color: #e11c4c;
+}
+.scroll-btn a {
+  text-decoration: none;
+  color: #ffffff;
+}
+@media (max-width: 900px) {
+  .feed-steps {
+    margin-top: 40px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .feed-quote {
+    margin-left: 0;
+  }
+  .top-nav,
+  .top-bar {
+    padding: 0 12px;
+    height: 52px;
+  }
+
+  .nav-logo {
+    font-size: 16px;
+  }
+
+  .nav-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .nav-icons {
+    gap: 6px;
+  }
+  h1 {
+    justify-content: center;
+    margin-top: 60px;
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    z-index: 9997;
+  }
+
+  .icon:nth-child(1) {
+    left: 12%;
+    top: 12%;
+    animation-delay: 0.8s;
+    z-index: 9994;
+    width: 45px;
+  }
+  /* facebook */
+  .icon:nth-child(2) {
+    right: 13%;
+    top: 16%;
+    animation-delay: none;
+    width: 90px;
+    z-index: 9999;
+  }
+  .feed-quote {
+    max-width: 320px;
+    font-size: 14px;
+    line-height: 1.5;
+    z-index: 12000;
+  }
+  .top-nav,
+  .top-bar {
+    position: fixed;
+  }
+  .profile-info img {
+    height: 260px;
+  }
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0px;
+  }
+  .profile-info p {
+    max-width: 360px;
+    font-size: 14px;
+    z-index: 9999;
+  }
+  .media-img:nth-child(1) {
+    left: 22%;
+    top: 32%;
+    animation-delay: 0.8s;
+    z-index: 9994;
+    width: 25px;
+  }
+  .media-img:nth-child(2) {
+    left: 30%;
+    bottom: 12%;
+    animation-delay: 0.4s;
+    z-index: 9994;
+    width: 35px;
+  }
+  .media-img:nth-child(3) {
+    right: 12%;
+    bottom: 32%;
+    animation-delay: 0.8s;
+    z-index: 9994;
+    width: 45px;
+  }
+}

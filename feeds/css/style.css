@@ -1,0 +1,89 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  background-color: #000000;
+  justify-content: center;
+}
+
+/* SEARCH SECTION */
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 0 16px;
+  background-color: #000000;
+  user-select: none;
+}
+
+.search-section h2 {
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  color: #ffffff;
+  margin: 0 0 24px;
+}
+.search-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box input {
+  width: min(100%, 360px);
+  padding: 14px 20px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.info {
+  max-width: 640px;
+  margin: 32px;
+  padding: 0 16px 24px;
+  text-align: center;
+}
+
+.info p {
+  color: #fdfdfd;
+}
+
+.description {
+  font-size: clamp(0.95rem, 3vw, 1.15rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Cursor Trail Squares */
+.cursor-square {
+  position: fixed;
+  width: 26px;
+  height: 26px;
+  background: #b5b5b5;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  transition: opacity 0.2s linear;
+}
+
+@media (max-width: 480px) {
+  .search-section {
+    min-height: 100vh;
+  }
+
+  .search-section h2 {
+    margin-bottom: 18px;
+  }
+
+  .info {
+    margin-top: 80px;
+    margin: 20px;
+    padding: 0px;
+  }
+}
