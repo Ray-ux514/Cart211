@@ -1,0 +1,267 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+  color: #000000;
+  user-select: none;
+}
+
+.top-nav,
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 100;
+  background: transparent;
+}
+
+.nav-logo {
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.nav-icon.stop {
+  background: #f2a649;
+}
+.nav-icon img {
+  width: 40%;
+  height: 40%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.nav-icon {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(252, 252, 252);
+  color: #000;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 999;
+  transform-origin: center;
+}
+
+/* Show tooltip on hover */
+.nav-icon:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.info-content {
+  max-width: 1400px;
+  margin: 20px auto 80px;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* Row of big icons */
+.info-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+/* Each icon + text block */
+.info-card {
+  position: relative;
+  text-align: left;
+  max-width: 300px;
+}
+
+/* The hanging line above each icon */
+
+/* Icon size */
+.info-card img {
+  width: clamp(180px, 18vw, 260px);
+  display: block;
+  margin: 0 auto 16px;
+}
+
+/* Caption under each icon */
+.info-caption {
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Different vertical levels */
+.level-high {
+  margin-top: 40px;
+  animation-delay: 1s;
+}
+
+.level-low {
+  margin-top: 220px;
+}
+
+/* Long paragraph at the bottom */
+.info-long {
+  margin-top: 100px;
+}
+
+.info-long p {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.cursor-square {
+  position: fixed;
+  width: 26px;
+  height: 26px;
+  background: #b5b5b5;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  transition: opacity 0.2s linear;
+}
+#falling-squares {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0; /* stays behind everything */
+}
+
+.square {
+  position: absolute;
+  width: 12px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.529); /* subtle grey */
+  border-radius: 3px;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  from {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(110vh);
+    opacity: 1;
+  }
+}
+
+/* 3 columns on medium screens */
+@media (max-width: 1200px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+/* 2 columns on tablets */
+@media (max-width: 900px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+/* 1 column on phones */
+@media (max-width: 600px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+
+/* ========= RESPONSIVE INFO PAGE ========= */
+
+@media (max-width: 900px) {
+  .info-content {
+    padding: 0 20px;
+  }
+
+  .info-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  /* flatten levels a bit on small screens */
+  .level-high,
+  .level-mid,
+  .level-low {
+    margin-top: 60px;
+  }
+
+  .info-card::before {
+    height: 150px;
+    top: -150px;
+  }
+
+  .info-long {
+    margin-top: 100px;
+  }
+  .top-nav,
+  .top-bar {
+    padding: 0 12px;
+    height: 52px;
+  }
+
+  .top-nav,
+  .top-bar {
+    padding: 0 12px;
+    height: 52px;
+  }
+
+  .nav-logo {
+    font-size: 16px;
+  }
+
+  .nav-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .nav-icons {
+    gap: 6px;
+  }
+}

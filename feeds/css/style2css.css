@@ -1,0 +1,277 @@
+/* Reset + overflow fix */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  background-color: #ffffff;
+}
+/* HEADER */
+.top-bar {
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+.logo a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.header-right {
+  display: flex;
+  gap: 16px;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.title-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.clickme {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  animation: blink 1s infinite ease-in-out;
+  text-decoration: none;
+  z-index: 9999;
+}
+.clickme a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 128px;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+}
+.title {
+  color: rgb(0, 0, 0);
+  font-size: clamp(3.5rem, 18vw, 16rem);
+  text-align: center;
+  pointer-events: none;
+}
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+.logo a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+/* ANIMATION*/
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ICONS */
+.icons {
+  position: relative;
+  height: 300px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.icon {
+  margin-top: 80px;
+  position: absolute;
+  animation: floatUpDown 3.5s ease-in-out infinite;
+}
+
+/* tiktok */
+.icon:nth-child(1) {
+  left: 10%;
+  top: 150%;
+  animation-delay: 0s;
+  z-index: 88888;
+  width: 145px;
+}
+/* facebook */
+.icon:nth-child(2) {
+  left: 37%;
+  top: 52%;
+  animation-delay: 0.6s;
+  width: 190px;
+}
+/* instagram */
+.icon:nth-child(3) {
+  left: 55%;
+  top: 95%;
+  animation-delay: 0.9s;
+  width: 125px;
+  z-index: 88888;
+}
+/* x */
+.icon:nth-child(4) {
+  left: 80%;
+  top: 32%;
+  animation-delay: 1.2s;
+  width: 120px;
+}
+/* instagramfeed */
+.icon:nth-child(5) {
+  left: 70%;
+  top: 140%;
+  animation: none;
+  border-radius: 14px;
+  width: 85px;
+}
+/* tiktokfeed */
+.icon:nth-child(6) {
+  left: 18%;
+  top: 2%;
+  animation: none;
+  border-radius: 14px;
+  width: 85px;
+}
+
+/* Cursor Trail Squares */
+.cursor-square {
+  position: fixed;
+  width: 26px;
+  height: 26px;
+  background: #b5b5b5;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  transition: opacity 0.2s linear;
+}
+/* BACKGROUND FALLING SQUARES */
+#falling-squares {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0; /* stays behind everything */
+}
+
+.square {
+  position: absolute;
+  width: 12px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.07); /* subtle grey */
+  border-radius: 3px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(110vh);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+  }
+  .icons {
+    position: none;
+    height: none;
+  }
+  .clickme {
+    top: 68%;
+    font-size: 20px;
+  }
+
+  .icon {
+    margin-top: 0;
+    transform: scale(0.7);
+  }
+
+  .icon:nth-child(1) {
+    /* tiktok */
+    left: 8%;
+    top: 170%;
+    width: 65px;
+  }
+
+  .icon:nth-child(2) {
+    /* facebook */
+    left: 50%;
+    top: 118%;
+    width: 75px;
+  }
+
+  .icon:nth-child(3) {
+    /* instagram */
+    left: 80%;
+    top: 165%;
+    width: 55px;
+  }
+
+  .icon:nth-child(4) {
+    /* x */
+    left: 25%;
+    top: 40%;
+    width: 55px;
+  }
+
+  .icon:nth-child(5) {
+    /* instagramfeed */
+    left: 65%;
+    top: 62%;
+    width: 55px;
+  }
+
+  .icon:nth-child(6) {
+    /* tiktokfeed */
+    left: 15%;
+    top: 80%;
+    width: 55px;
+  }
+}
